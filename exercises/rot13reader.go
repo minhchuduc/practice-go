@@ -13,7 +13,6 @@ type rot13Reader struct {
 func (s *rot13Reader) Read(b []byte) (n int, err error) {
     res, er := s.r.Read(b)
     for i, char := range(b) {
-        describe(char)
         if char <= 'Z' && char >='A'  {
             b[i] = (char - 'A' + 13)%26 + 'A'
         }else if char >= 'a' && char <= 'z' {

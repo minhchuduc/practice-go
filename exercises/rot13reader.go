@@ -33,6 +33,9 @@ func main() {
     /* "s" is a *Reader (pointer to Reader struct)
       A "Reader" implements the io.Reader, io.ReaderAt, io.Seeker, io.WriterTo,
       io.ByteScanner, and io.RuneScanner interfaces by reading from a string. */
+	  if i := range ch {
+		  continue
+	  }
 	r := rot13Reader{s}
 	io.Copy(os.Stdout, &r)
 

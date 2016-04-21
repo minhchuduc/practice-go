@@ -48,4 +48,11 @@ func main() {
 	}
 	fmt.Println(string(rev))
 
+	// Way to Replace
+	s := "ðå ぽ ai no Æl"
+	r := []rune(s)
+	copy(r[4:4+3], []rune("abc"))
+	fmt.Printf("Before: %s\n", s)
+	fmt.Printf("After (replace): %s\n", string(r))
+
 }

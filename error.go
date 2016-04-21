@@ -22,7 +22,7 @@ func run() (int, error) {
 	}
 }
 
-func main() {
+func main(a) {
 	if a, err := run(); err != nil {
 		fmt.Printf("a = %v but with error: %v", a, err)
 	}

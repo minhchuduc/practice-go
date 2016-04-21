@@ -1,23 +1,22 @@
 package main
 
 import (
-    "fmt"
-    "math"
+	"fmt"
+	"math"
 )
+
 type Abser interface {
-    Abs() float64
+	Abs() float64
 }
 
 func main() {
 	var a Abser
-	f := MyFloat(-math.Sqrt2)
+	f := MyFloat(-math.Sqrt2) // comment
 	fmt.Println(f)
 	fmt.Printf("Type of f = %T\n", f)
 	v := Vertex{3, 4}
-
-	a = f  // a MyFloat implements Abser
+	a = f //a MyFloat implements Abser
 	fmt.Println(f.Abs())
-
 	a = &v // a *Vertex implements Abser
 
 	// In the following line, v is a Vertex (not *Vertex)

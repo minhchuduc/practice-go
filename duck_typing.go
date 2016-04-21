@@ -29,7 +29,7 @@ func (this Person) Feathers() {
 
 // May also be defined as func InTheForest(q Quackable) for compile-time checking
 func InTheForest(i interface{}) {
-  q := i.(Quackable)
+	q := i.(Quackable)
 
 	q.Quack()
 	q.Feathers()

@@ -1,14 +1,16 @@
 package main
+
 import (
-  "fmt"
+	"fmt"
 )
+
 type Bootcamp struct {
-  Lat float64
-  Lon float64
+	Lat float64
+	Lon float64
 }
 
 func main() {
-  x := new(Bootcamp)
-  y := &Bootcamp{}
-  fmt.Println(*x == *y)
+	x := new(Bootcamp)
+	y := &Bootcamp{}
+	fmt.Println(*x == *y)
 }

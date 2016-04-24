@@ -3,11 +3,24 @@ package main
 import "fmt"
 
 func add(a interface{}, b interface{}) interface{} {
-	return a.(int) + b.(int)
+	//return a.(int) + b.(int)
+	if ta, ok := a.(int); ok {
+		if tb, ok := b.(int); ok {
+			return ta + tb
+		}
+	} else {
+		fmt.Println("Parameter's type is not supported!")
+		return a
+	}
+	return nil
+	// If don't have above line, Go will error. Don't know why.
+	// Maybe because of "interface{}" return type.
 }
 
 func main() {
 	fmt.Println(add(5, 7))
+	fmt.Println(add(6.6, 8.8))
+	//fmt.Println(add(6, 7.7))
 	stra := "the spice must flow"
 	byts := []byte(stra)
 	strb := string(byts)

@@ -28,7 +28,7 @@ func main() {
 				fmt.Fprintf(os.Stderr, "%s: error reading from %s: %s\n", os.Args[0], flag.Arg(i), err.Error())
 				continue // ?? why need this
 			}
-			cat(bufio.NewReader(f))
+			cat(bufio.NewReaderSize(f, 30))
 		}
 
 	}

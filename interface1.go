@@ -18,8 +18,12 @@ func add(a interface{}, b interface{}) interface{} {
 }
 
 func g(something interface{}) int {
-	return something.(I).Get()
+	//return something.(I).Get()
+	if v, ok := something.(I); ok { // in Go, this idiom is called "comma ok"
+		return v.Get()
+	}
 
+	return -1 // if fails, we return "something"
 }
 
 type I interface {
@@ -43,8 +47,8 @@ func main() {
 	fmt.Println(stra, byts, strb)
 
 	s := new(S)
-	fmt.Println(g(s))
+	fmt.Println(g(s)) // It's ok because S have get() method
 
 	i := 5
-	fmt.Println(g(i)) // Compile-time is ok, but Run-time will fail!
+	fmt.Println(g(i)) // It's fail gracefully because of we checked in g()
 }
